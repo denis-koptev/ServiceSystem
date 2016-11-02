@@ -18,10 +18,10 @@ public:
 	struct Results
 	{
 		uint generated,
-				accepted, 
-				buf_declined, 
-				buf_remained, 
-				system_remained;
+		     accepted, 
+	             buf_declined, 
+	             buf_remained, 
+		     system_remained;
 
 		double downtime,
 		       final_time,
