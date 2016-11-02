@@ -5,21 +5,21 @@
 
 class Coordinates
 {
-	public:
+    public:
 
-		Coordinates(double x_from_, double x_to_,
-		            double y_from_, double y_to_);
+        Coordinates(double x_from_, double x_to_,
+                    double y_from_, double y_to_);
 
-		double get_x_prop() const;
-		double get_y_prop() const;
+        double get_x_prop() const;
+        double get_y_prop() const;
 
-		void draw(QGraphicsScene * scene);
+        void draw(QGraphicsScene * scene);
 
-	private:
+    private:
 
-		double x_prop, y_prop;
-		double x_from, x_to,
-		       y_from, y_to;
+        double x_prop, y_prop;
+        double x_from, x_to,
+               y_from, y_to;
 };
 
 #endif // COORDINATES_HPP
