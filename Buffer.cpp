@@ -12,7 +12,7 @@ Buffer::Buffer(uint size_)
 {}
 
 bool Buffer::push(const Request & request)
-{	
+{
     if (requests.size() < size)
     {
         requests.push_back(request);
@@ -42,7 +42,7 @@ Request Buffer::get()
 
 uint Buffer::get_declined() const
 {
-	return declined;
+    return declined;
 }
 
 void Buffer::clear()

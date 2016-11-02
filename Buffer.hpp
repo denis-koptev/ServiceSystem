@@ -8,33 +8,33 @@
 
 class Buffer
 {
-public:
+    public:
 
-	typedef std::vector<Request>::iterator iterator;
+        typedef std::vector<Request>::iterator iterator;
 
-    Buffer();
-    Buffer(uint size_);
-	
-    bool push(const Request & request);
-    uint pop();
+        Buffer();
+        Buffer(uint size_);
 
-    Request get(); // get request erasing it from buffer
+        bool push(const Request & request);
+        uint pop();
 
-    uint get_declined() const;
-    uint get_current_size() const;
-    uint get_max_size() const;
+        Request get(); // get request erasing it from buffer
 
-    Request at(uint pos) const;
+        uint get_declined() const;
+        uint get_current_size() const;
+        uint get_max_size() const;
 
-	void clear();
+        Request at(uint pos) const;
 
-    uint count_remains() const;
+        void clear();
 
-private:
-	
-	std::vector<Request> requests;
-    uint size;
-    uint declined;
+        uint count_remains() const;
+
+    private:
+
+        std::vector<Request> requests;
+        uint size;
+        uint declined;
 };
 
 #endif

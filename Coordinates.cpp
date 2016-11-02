@@ -11,18 +11,18 @@ Coordinates::Coordinates(double x_from_, double x_to_,
     y_prop = -590 / (y_to - y_from);
 }
 
-void Coordinates::draw(QGraphicsScene *scene)
+void Coordinates::draw(QGraphicsScene * scene)
 {
     int y_size = 590;
 
-    double x_step = (x_to-x_from) / 20;
-    double y_step = (y_to-y_from) / 10;
+    double x_step = (x_to - x_from) / 20;
+    double y_step = (y_to - y_from) / 10;
 
     QPen pen(Qt::white);
     pen.setWidth(1);
 
-    scene->addLine(0, (y_from*y_prop), 0, (y_to*y_prop), pen);
-    scene->addLine((x_from*x_prop), 0, (x_to*x_prop), 0, pen);
+    scene->addLine(0, (y_from * y_prop), 0, (y_to * y_prop), pen);
+    scene->addLine((x_from * x_prop), 0, (x_to * x_prop), 0, pen);
 
     int actual_y_pos = y_size;
     for (double y = y_from; y <= y_to; y += y_step)

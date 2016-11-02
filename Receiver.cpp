@@ -17,10 +17,10 @@ void Receiver::push(double time)
     {
         throw std::invalid_argument("Wrong time value!");
     }
-	if (busy_until > time)
-	{
-		throw std::runtime_error("Receiver is busy");
-	}
+    if (busy_until > time)
+    {
+        throw std::runtime_error("Receiver is busy");
+    }
 
     int step = 0;
     double exp = std::exp(-lambda);
@@ -29,13 +29,13 @@ void Receiver::push(double time)
     {
         x -= exp;
         step++;
-        exp *= lambda/step;
+        exp *= lambda / step;
     }
 
     busy_until = time + step;
     worktime += step;
 
-	accepted++;
+    accepted++;
 }
 
 bool Receiver::is_busy(double at_time) const
@@ -44,12 +44,12 @@ bool Receiver::is_busy(double at_time) const
     {
         throw std::invalid_argument("Wrong time value!");
     }
-	return (at_time < busy_until);
+    return (at_time < busy_until);
 }
 
 uint Receiver::get_accepted() const
 {
-	return accepted;
+    return accepted;
 }
 
 double Receiver::get_busy_until() const

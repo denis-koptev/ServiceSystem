@@ -13,56 +13,56 @@ class ServiceSystemUI;
 
 class ServiceSystem
 {
-public:
+    public:
 
-    struct Results
-	{
-        uint generated,
-			accepted, 
-			buf_declined, 
-			buf_remained, 
-			system_remained;
+        struct Results
+        {
+            uint generated,
+                 accepted,
+                 buf_declined,
+                 buf_remained,
+                 system_remained;
 
-        double downtime,
-               final_time,
-               worktime;
+            double downtime,
+                   final_time,
+                   worktime;
 
-        Results();
-        Results(uint generated_, uint accepted_,
-            uint buf_declined_, uint buf_remained_,
-            uint system_remained_, double downtime_,
-            double worktime_, double final_time_);
-    };
+            Results();
+            Results(uint generated_, uint accepted_,
+                    uint buf_declined_, uint buf_remained_,
+                    uint system_remained_, double downtime_,
+                    double worktime_, double final_time_);
+        };
 
-    ServiceSystem(uint src_num, uint buff_size, uint rcv_num,
-                  double src_lambda, double rcv_lambda);
+        ServiceSystem(uint src_num, uint buff_size, uint rcv_num,
+                      double src_lambda, double rcv_lambda);
 
-    void make_step();
+        void make_step();
 
-    uint get_accepted() const;
-    uint get_declined() const;
-	Results get_results() const;
-    Source get_source(uint src_num) const;
-	
-    void clear();
+        uint get_accepted() const;
+        uint get_declined() const;
+        Results get_results() const;
+        Source get_source(uint src_num) const;
 
-    friend class ServiceSystemUI;
+        void clear();
 
-private:
+        friend class ServiceSystemUI;
 
-    std::vector<Source> sources;
-	Buffer buffer;
-	std::vector<Receiver> receivers;
-    uint rcv_pos; // Receiver pointer
+    private:
 
-    double downtime;
+        std::vector<Source> sources;
+        Buffer buffer;
+        std::vector<Receiver> receivers;
+        uint rcv_pos; // Receiver pointer
 
-    uint next_pos(uint curr_pos, uint size) const;
+        double downtime;
 
-    typedef std::vector<Source>::iterator src_iterator;
-    typedef std::vector<Receiver>::iterator rcv_iterator;
-    typedef std::vector<Source>::const_iterator src_c_iterator;
-    typedef std::vector<Receiver>::const_iterator rcv_c_iterator;
+        uint next_pos(uint curr_pos, uint size) const;
+
+        typedef std::vector<Source>::iterator src_iterator;
+        typedef std::vector<Receiver>::iterator rcv_iterator;
+        typedef std::vector<Source>::const_iterator src_c_iterator;
+        typedef std::vector<Receiver>::const_iterator rcv_c_iterator;
 };
 
 #endif
